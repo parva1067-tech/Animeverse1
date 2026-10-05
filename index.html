@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AnimeVerse | Anime Character Encyclopedia</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    
+        <style>
+           
+* {
+
+    box-sizing: border-box;
+}
+
+body {
+   
+    background: black;
+    color: white;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar {
+    height: 75px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: black;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+    
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: red;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.navbar nav a:hover {
+    color: red;
+}
+
+.hero {
+
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.95),
+            rgba(0,0,0,0.45),
+            rgba(0,0,0,0.8)
+        ),
+        url("../images/naruto-bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    width: 700px;
+    margin-left: 8%;
+    position: relative;
+    z-index: 2;
+}
+
+.small-title {
+    font-size: 15px;
+    letter-spacing: 5px;
+    color: red;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 90px;
+    line-height: 0.8;
+    letter-spacing: 5px;
+}
+
+.hero h1 span {
+    color: red;
+}
+
+.hero p {
+    margin-top: 30px;
+    max-width: 600px;
+    color: white;
+    line-height: 1.8;
+}
+
+.explore-btn {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 15px 30px;
+    background: red;
+    font-weight: 700;
+}
+
+.explore-btn:hover {
+   
+    background: white;
+    color: black;
+}
+
+.intro {
+    text-align: center;
+    padding: 110px 20px 80px;
+}
+
+.section-label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: red;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.intro h2,
+.about h2 {
+   
+    font-size: 65px;
+    letter-spacing: 2px;
+}
+
+.intro h2 span,
+.about h2 span {
+    color: red;
+}
+
+.intro-text {
+    max-width: 650px;
+    margin: 20px auto 0;
+    color: #999;
+    line-height: 1.8;
+}
+
+main {
+    width: 92%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.anime-box {
+    margin-bottom: 100px;
+    background: black;
+    border: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.5);
+}
+
+.anime-header {
+
+    height: 430px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 50px;
+    background-size: cover;
+    background-position: center;
+    isolation: isolate;
+}
+
+.anime-header::after {
+
+    content: "normal";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(
+            0deg,
+            rgba(0,0,0,0.95),
+            rgba(0,0,0,0.15)
+        );
+}
+
+.naruto-bg {
+
+    background-image:
+    url("./img.html/Naruto.jpg");
+
+}
+
+.onepiece-bg {
+
+    background-image:
+        url("./img.html/one\ piece.jpg");
+
+}
+
+.bleach-bg {
+
+    background-image:
+        url("./img.html/bleach.jpg");
+
+}
+
+.dragonball-bg {
+
+    background-image:
+        url("./img.html/dragon\ ball.jpg");
+
+}
+
+.anime-number {
+
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 100px;
+    color: rgba(255,255,255,0.15);
+}
+
+.anime-title {
+    position: relative;
+    z-index: 2;
+}
+
+.anime-title p {
+
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #ff3b30;
+    font-weight: 700;
+}
+
+.anime-title h2 {
+
+    font-size: 90px;
+    letter-spacing: 4px;
+    line-height: 0.9;
+    margin: 8px 0;
+}
+
+.anime-title span {
+
+    font-size: 15px;
+    color: #ddd;
+    font-style: italic;
+}
+
+.anime-content {
+
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 70px;
+}
+
+.summary h3,
+.characters h3 {
+
+    font-size: 40px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.summary > p:not(.section-label) {
+
+    color: #aaa;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.anime-details {
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.anime-details div {
+
+    padding: 15px;
+    border-left: 3px solid #ff3b30;
+    background: #181818;
+}
+
+.anime-details span {
+
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #777;
+    margin-bottom: 4px;
+}
+
+.anime-details strong {
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.character-grid {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.character-card {
+
+    background: #181818;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: 0.4s;
+}
+
+.character-card img {
+
+    height: 300px;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.character-info {
+
+    padding: 20px;
+}
+
+.character-info span {
+
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #ff3b30;
+    font-weight: 700;
+}
+
+.character-info h4 {
+
+    font-size: 19px;
+    margin: 7px 0;
+}
+
+.character-info p {
+
+    color: #888;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.about {
+
+    text-align: center;
+    max-width: 800px;
+    margin: 80px auto 120px;
+    padding: 0 20px;
+}
+
+.about p:not(.section-label) {
+
+    margin-top: 25px;
+    color: #999;
+    line-height: 1.8;
+}
+
+footer {
+
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    background: #050505;
+}
+
+.footer-logo {
+
+    font-size: 35px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.footer-logo span {
+
+    color: #ff3b30;
+}
+
+footer p {
+
+    color: #666;
+    font-size: 12px;
+    margin: 8px;
+}
+
+.copyright {
+
+    font-size: 10px;
+}
+
+@media (max-width: 1000px) {
+
+    .anime-content {
+
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .character-grid {
+
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 700px) {
+
+    .navbar {
+
+        padding: 0 20px;
+    }
+
+    .navbar nav {
+
+        gap: 15px;
+    }
+
+    .navbar nav a {
+
+        font-size: 11px;
+    }
+
+    .hero-content {
+
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+
+    .hero h1 {
+
+        font-size: 80px;
+    }
+
+    .intro h2,
+    .about h2 {
+
+        font-size: 48px;
+    }
+
+    .anime-header {
+
+        height: 350px;
+        padding: 30px;
+    }
+
+    .anime-title h2 {
+
+        font-size: 65px;
+    }
+
+    .anime-content {
+
+        padding: 30px;
+    }
+
+    .character-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .character-card img {
+
+        height: 350px;
+    }
+
+    .anime-number {
+
+        font-size: 70px;
+        right: 20px;
+    }
+
+}
+            </style>
+</head>
+
+<body>
+
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>ANIME</span>VERSE
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#anime">Anime</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+
+    <section class="hero" id="home">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <p class="small-title">WELCOME TO</p>
+
+            <h1>ANIME<span>VERSE</span></h1>
+
+            <p>
+                Explore legendary anime worlds, unforgettable stories
+                and the characters who made them iconic.
+            </p>
+
+            <a href="#anime" class="explore-btn">
+                EXPLORE ANIME ↓
+            </a>
+
+        </div>
+    </section>
+
+
+    <section class="intro">
+
+        <p class="section-label">THE ULTIMATE COLLECTION</p>
+
+        <h2>ENTER THE <span>ANIMEVERSE</span></h2>
+
+        <p class="intro-text">
+            From ninjas and pirates to Soul Reapers and Saiyans,
+            discover some of the greatest anime worlds ever created.
+        </p>
+
+    </section>
+
+    <main id="anime">
+
+        <article class="anime-box">
+
+            <div class="anime-header naruto-bg">
+
+                <div class="anime-number">
+                    01
+                </div>
+
+                <div class="anime-title">
+
+                    <p>SHINOBI WORLD</p>
+
+                    <h2>NARUTO</h2>
+
+                    <span>
+                        Believe it!
+                    </span>
+
+                </div>            
+            </div>
+
+            <div class="anime-content">
+
+                <section class="summary">
+
+                    <p class="section-label">ABOUT THE ANIME</p>
+
+                    <h3>The Way of the Ninja</h3>
+
+                    <p>
+                        Naruto follows Naruto Uzumaki, a young ninja
+                        who dreams of becoming the Hokage of his village.
+                        Despite being treated as an outsider, Naruto
+                        continues to train, make friends and overcome
+                        powerful enemies.
+                    </p>
+
+                    <p>
+                        His journey is filled with friendship, rivalry,
+                        sacrifice and the determination to never give up.
+                    </p>
+
+                    <div class="anime-details">
+
+                        <div>
+                            <span>GENRE</span>
+                            <strong>Action / Adventure / Drama / Fantasy / Shonen</strong>
+                        </div>
+
+                        <div>
+                            <span>WORLD</span>
+                            <strong>Hidden Leaf Village</strong>
+                        </div>
+
+                        <div>
+                            <span>THEME</span>
+                            <strong>Never Give Up</strong>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <section class="characters">
+
+                    <p class="section-label">MAIN CHARACTERS</p>
+
+                    <h3>Legends of the Shinobi World</h3>
+
+
+                    <div class="character-grid">
+
+
+                        <div class="character-card">
+
+                            <img src="./img.html/naruto alone.jpg"
+                                alt="Naruto Uzumaki">
+
+                            <div class="character-info">
+
+                                <span>THE HERO</span>
+
+                                <h4>Naruto Uzumaki</h4>
+
+                                <p>
+                                    A determined ninja who dreams
+                                    of becoming Hokage.
+                                </p>
+
+                            </div>
+                        </div>
+
+                        <div class="character-card">
+
+                            <img src="./img.html/sasuke.jpg"   
+                                alt="Sasuke Uchiha">
+
+                            <div class="character-info">
+
+                                <span>THE RIVAL</span>
+
+                                <h4>Sasuke Uchiha</h4>
+
+                                <p>
+                                    A talented shinobi driven by
+                                    his complicated past.
+                                </p>
+
+                            </div>
+                        </div>
+
+                        <div class="character-card">
+
+                            <img src="./img.html/Itachi.jpg"           
+                                alt="Itachi Uchiha">
+
+                            <div class="character-info">
+
+                                <span>THE LEGEND</span>
+
+                                <h4>Itachi Uchiha</h4>
+
+                                <p>
+                                    A highly skilled shinobi whose
+                                    story is full of sacrifice.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+
+        <article class="anime-box">
+
+            <div class="anime-header onepiece-bg">
+
+                <div class="anime-number">
+                    02
+                </div>
+
+                <div class="anime-title">
+
+                    <p>GRAND LINE</p>
+
+                    <h2>ONE PIECE</h2>
+
+                    <span>
+                        Set sail!
+                    </span>
+                </div>
+            </div>
+
+            <div class="anime-content">
+
+                <section class="summary">
+
+                    <p class="section-label">ABOUT THE ANIME</p>
+
+                    <h3>The Great Pirate Adventure</h3>
+
+                    <p>
+                        One Piece follows Monkey D. Luffy and his
+                        Straw Hat crew as they travel across the
+                        Grand Line in search of the legendary treasure
+                        known as the One Piece.
+                    </p>
+
+                    <p>
+                        Their adventure brings them face-to-face
+                        with powerful pirates, Marines and mysterious
+                        islands while building unforgettable bonds.
+                    </p>
+
+                    <div class="anime-details">
+
+                        <div>
+                            <span>GENRE</span>
+                            <strong>Adventure / Fantasy / Action / Shonen / Comedy / Fantasy</strong>
+                        </div>
+
+                        <div>
+                            <span>WORLD</span>
+                            <strong>Grand Line</strong>
+                        </div>
+
+                        <div>
+                            <span>THEME</span>
+                            <strong>Freedom</strong>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="characters">
+
+                    <p class="section-label">MAIN CHARACTERS</p>
+
+                    <h3>The Straw Hat Legends</h3>
+
+
+                    <div class="character-grid">
+
+
+                        <div class="character-card">
+                            <img src="./img.html/luffy.jpg"
+                            alt="Monkey D. Luffy">
+
+                            <div class="character-info">
+
+                                <span>CAPTAIN</span>
+
+                                <h4>Monkey D. Luffy</h4>
+
+                                <p>
+                                    A fearless pirate who dreams
+                                    of becoming the Pirate King.
+                                </p>
+
+                            </div>
+                        </div>
+
+                        <div class="character-card">
+
+                            <img src="./img.html/zoro.jpg"
+                                alt="Roronoa Zoro">
+
+                            <div class="character-info">
+
+                                <span>SWORDSMAN</span>
+
+                                <h4>Roronoa Zoro</h4>
+
+                                <p>
+                                    A powerful swordsman aiming
+                                    to become the world's greatest.
+                                </p>
+
+                            </div>
+                        </div>
+
+
+                        <div class="character-card">
+
+                            <img src="./img.html/sanji.jpg"
+                                alt="Sanji">
+
+                            <div class="character-info">
+
+                                <span>COOK</span>
+
+                                <h4>Sanji</h4>
+
+                                <p>
+                                    The Straw Hats' cook and a
+                                    master of powerful kicks.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+
+        <article class="anime-box">
+
+            <div class="anime-header bleach-bg">
+
+                <div class="anime-number">
+                    03
+                </div>
+
+                <div class="anime-title">
+
+                    <p>SOUL SOCIETY</p>
+
+                    <h2>BLEACH</h2>
+
+                    <span>
+                        Protect the living.
+                    </span>
+
+                </div>
+            </div>
+
+
+            <div class="anime-content">
+
+                <section class="summary">
+
+                    <p class="section-label">ABOUT THE ANIME</p>
+
+                    <h3>The World of Soul Reapers</h3>
+
+                    <p>
+                        Bleach follows Ichigo Kurosaki, a teenager
+                        who gains the powers of a Soul Reaper and
+                        becomes responsible for protecting humans
+                        from dangerous spirits.
+                    </p>
+
+                    <p>
+                        His journey takes him into the mysterious
+                        Soul Society and eventually into conflicts
+                        involving powerful enemies and Soul Reapers.
+                    </p>
+
+                    <div class="anime-details">
+
+                        <div>
+                            <span>GENRE</span>
+                            <strong>Action / Supernatural / Drama / Shonen </strong>
+                        </div>
+
+                        <div>
+                            <span>WORLD</span>
+                            <strong>Soul Society</strong>
+                        </div>
+
+                        <div>
+                            <span>THEME</span>
+                            <strong>Protection</strong>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="characters">
+
+                    <p class="section-label">MAIN CHARACTERS</p>
+
+                    <h3>Warriors of the Soul Society</h3>
+
+
+                    <div class="character-grid">
+
+
+                        <div class="character-card">
+
+                            <img src="./img.html/ichigo.jpg"
+                                alt="Ichigo Kurosaki">
+
+                            <div class="character-info">
+
+                                <span>PROTAGONIST</span>
+
+                                <h4>Ichigo Kurosaki</h4>
+
+                                <p>
+                                    A human who becomes a Soul Reaper
+                                    and protects the people around him.
+                                </p>
+
+                            </div>
+                        </div>
+
+
+                        <div class="character-card">
+
+                            <img src="./img.html/rukia.jpg"
+                                alt="Rukia Kuchiki">
+
+                            <div class="character-info">
+
+                                <span>SOUL REAPER</span>
+
+                                <h4>Rukia Kuchiki</h4>
+
+                                <p>
+                                    A Soul Reaper whose encounter with
+                                    Ichigo changes both their lives.
+                                </p>
+
+                            </div>
+                        </div>
+
+
+                        <div class="character-card">
+
+                            <img src="./img.html/aizen.jpg"
+                                alt="Sosuke Aizen">
+
+                            <div class="character-info">
+
+                                <span>ANTAGONIST</span>
+
+                                <h4>Sosuke Aizen</h4>
+
+                                <p>
+                                    A brilliant and calculating
+                                    Soul Reaper with enormous power.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+
+
+        <article class="anime-box">
+
+            <div class="anime-header dragonball-bg">
+
+                <div class="anime-number">
+                    04
+                </div>
+
+                <div class="anime-title">
+
+                    <p>EARTH'S GREATEST WARRIORS</p>
+
+                    <h2>DRAGON BALL</h2>
+
+                    <span>
+                        Power beyond limits.
+                    </span>
+
+                </div>
+            </div>
+
+
+            <div class="anime-content">
+
+                <section class="summary">
+
+                    <p class="section-label">ABOUT THE ANIME</p>
+
+                    <h3>The Search for Power</h3>
+
+                    <p>
+                        Dragon Ball follows Goku and his friends as
+                        they train, explore the world and face increasingly
+                        powerful opponents.
+                    </p>
+
+                    <p>
+                        From martial arts tournaments to battles
+                        threatening entire worlds, the characters
+                        continually push beyond their limits.
+                    </p>
+
+                    <div class="anime-details">
+
+                        <div>
+                            <span>GENRE</span>
+                            <strong>Action / Martial Arts / Adventure / Shonen</strong>
+                        </div>
+
+                        <div>
+                            <span>WORLD</span>
+                            <strong>Earth & Beyond</strong>
+                        </div>
+
+                        <div>
+                            <span>THEME</span>
+                            <strong>Power & Growth</strong>
+                        </div>
+
+                    </div>
+                </section>
+
+
+                <section class="characters">
+
+                    <p class="section-label">MAIN CHARACTERS</p>
+
+                    <h3>Warriors Beyond Limits</h3>
+
+
+                    <div class="character-grid">
+
+
+                        <div class="character-card">
+
+                            <img src="./img.html/Goku.jpg"
+                                alt="Son Goku">
+
+                            <div class="character-info">
+
+                                <span>SAIYAN</span>
+                                
+                                <h4>Son Goku</h4>
+
+                                <p>
+                                    A cheerful warrior who constantly
+                                    seeks stronger opponents.
+                                </p>
+
+                            </div>
+                        </div>
+
+
+                        <div class="character-card">
+
+                            <img src="./img.html/Vegeta 2.jpg"
+                                alt="Vegeta">
+
+                            <div class="character-info">
+
+                                <span>PRINCE</span>
+
+                                <h4>Vegeta</h4>
+
+                                <p>
+                                    The proud Saiyan prince who
+                                    constantly challenges his limits.
+                                </p>
+
+                            </div>
+                        </div>
+
+
+                        <div class="character-card">
+
+                            <img src="./img.html/gohan.jpg"
+                                alt="Gohan">
+
+                            <div class="character-info">
+
+                                <span>WARRIOR</span>
+
+                                <h4>Gohan</h4>
+
+                                <p>
+                                    Goku's son whose incredible
+                                    potential makes him a powerful warrior.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </main>
+
+   <section class="about" id="about">
+
+        <p class="section-label">ABOUT ANIMEVERSE</p>
+
+        <h2>MORE THAN JUST <span>ANIME</span></h2>
+
+        <p>
+            AnimeVerse is a fan-made HTML and CSS project created
+            to explore legendary anime stories and the characters
+            who define them.
+        </p>
+
+    </section>
+
+    <footer>
+
+        <div class="footer-logo">
+            ANIME<span>VERSE</span>
+        </div>
+
+        <p>
+            Built with HTML & CSS • Anime Character Encyclopedia
+        </p>
+
+        <p class="copyright">
+            © 2026 AnimeVerse
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
